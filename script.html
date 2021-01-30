@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+
+
+
+
+let result = game();
+console.log(result);
+
+
+//const computerSelection = computerPlay();
+//let result = playRound(playerSelection, computerSelection);
+//console.log(result);
+
+function computerPlay(){
+    let computerSelections = ["rock","paper","scissors"];
+    return computerSelections[Math.floor(Math.random() * computerSelections.length)];
+    
+}
+
+function playRound(playerSelection, computerSelection){
+    if(computerSelection == "paper"){
+        return "Lose"; //"You lose! Paper beats Rock."
+    }
+    else if(computerSelection == "scissors"){
+        return "Win"; //"You win! Rock beats Paper."
+    }
+    else{
+        return "Draw"; //"Draw! Try again!"
+    }
+        
+}
+
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    let results=[];
+    
+    for(x=0;x<5;x++){
+        let playerSelection = prompt("Choose a hand.");
+        let computerSelection = computerPlay();
+        let roundResult = playRound(playerSelection, computerSelection);
+
+        if(roundResult == "Win"){
+            playerScore += 1;
+            results.push("Player wins! The current score is " + playerScore + " to " + computerScore);
+        }
+        else if(roundResult == "Lose")
+        {
+            computerScore += 1;
+            results.push("Computer wins! The current score is " + playerScore + " to " + computerScore);
+        }
+        else
+        {
+            results.push("Draw! The current score is " + playerScore + " to " + computerScore);
+        }
+    }
+    return results;
+}
+
+</script>
+
+
+
+</html>
